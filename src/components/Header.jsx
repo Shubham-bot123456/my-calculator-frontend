@@ -32,7 +32,7 @@ class Header extends Component {
         ),
       });
     } else this.setState({ aboutMe: "" });
-    this.state.counter++;
+    this.setState({ counter: this.state.counter + 1 });
   };
   render() {
     return (
