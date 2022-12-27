@@ -6,6 +6,7 @@ class Calculator extends Component {
   }
   state = {
     inputstring: "",
+    inputstringcolor: "black",
     mystyle: {
       margin: "2px",
       paddingTop: "20px",
@@ -31,15 +32,19 @@ class Calculator extends Component {
     else
       this.setState({
         inputstring: this.state.inputstring + button.toString(),
+        inputstringcolor: "black",
       });
   };
   getAnswer = () => {
     CalculatorService.getAnswer(this.state.inputstring)
       .then((result) => {
-        this.setState({ inputstring: result.data });
+        this.setState({
+          inputstring: result.data,
+          inputstringcolor: result.data === "syntax error" ? "red" : "green",
+        });
       })
       .catch((err) => {
-        this.setState({ inputstring: "error" });
+        this.setState({ inputstring: "error", inputstringcolor: "red" });
       });
   };
   render() {
@@ -56,7 +61,10 @@ class Calculator extends Component {
         <div>
           <input
             onChange={(e) => {
-              this.setState({ inputstring: e.target.value });
+              this.setState({
+                inputstring: e.target.value,
+                inputstringcolor: "black",
+              });
             }}
             value={this.state.inputstring}
             type="text"
@@ -67,7 +75,9 @@ class Calculator extends Component {
               paddingTop: "15px",
               paddingBottom: "15px",
               fontSize: "20px",
+              color: this.state.inputstringcolor,
               marginRight: "100px",
+              fontStyle: "Bold",
             }}
           ></input>
         </div>
