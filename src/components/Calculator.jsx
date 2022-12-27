@@ -62,7 +62,7 @@ class Calculator extends Component {
         </div>
         <div>
           <button onClick={() => this.setButtonvalue("*")}>x</button>
-          <button onClick={() => this.setButtonvalue("/")}>/</button>
+          <button onClick={() => this.setButtonvalue("/")}>/`</button>
           <button onClick={() => this.setButtonvalue("-")}>-</button>
         </div>
         <div>
