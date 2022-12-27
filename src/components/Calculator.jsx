@@ -10,8 +10,8 @@ class Calculator extends Component {
       margin: "2px",
       paddingTop: "20px",
       paddingBottom: "20px",
-      paddingLeft: "26px",
-      paddingRight: "26px",
+      paddingLeft: "10.5%",
+      paddingRight: "10.5%",
       fontFamily: "Arial",
       fontSize: "18px",
     },
@@ -46,13 +46,14 @@ class Calculator extends Component {
     return (
       <div
         style={{
-          marginLeft: "50px",
+          marginLeft: "25%",
+          marginRight: "25%",
           marginTop: "50px",
           paddingRight: "100px",
           paddingLeft: "100px",
         }}
       >
-        <div style={{ marginRight: "200px" }}>
+        <div>
           <input
             onChange={(e) => {
               this.setState({ inputstring: e.target.value });
@@ -73,12 +74,12 @@ class Calculator extends Component {
         <div>
           <button
             type="button"
-            class="btn btn-danger"
+            class="btn btn-danger btn-lg btn-block"
             style={{
               marginTop: "10px",
               marginBottom: "5px",
-              paddingLeft: "120px",
-              paddingRight: "120px",
+              paddingLeft: "45%",
+              paddingRight: "45%",
               paddingTop: "20px",
               paddingBottom: "20px",
             }}
@@ -229,8 +230,8 @@ class Calculator extends Component {
               style={{
                 marginTop: "10px",
                 marginBottom: "5px",
-                paddingLeft: "120px",
-                paddingRight: "120px",
+                paddingLeft: "46%",
+                paddingRight: "46%",
                 paddingTop: "20px",
                 paddingBottom: "20px",
               }}
