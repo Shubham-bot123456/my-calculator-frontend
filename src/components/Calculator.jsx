@@ -13,6 +13,7 @@ class Calculator extends Component {
       paddingLeft: "26px",
       paddingRight: "26px",
       fontFamily: "Arial",
+      fontSize: "18px",
     },
   };
   setButtonvalue1 = () => {
@@ -55,6 +56,11 @@ class Calculator extends Component {
           class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
+          style={{
+            paddingTop: "15px",
+            paddingBottom: "15px",
+            fontSize: "20px",
+          }}
         ></input>
         <div>
           <button
