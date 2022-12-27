@@ -52,7 +52,7 @@ class Calculator extends Component {
           paddingLeft: "100px",
         }}
       >
-        <div style={{ marginRight: "750px" }}>
+        <div style={{ marginRight: "200px" }}>
           <input
             onChange={(e) => {
               this.setState({ inputstring: e.target.value });
@@ -66,7 +66,7 @@ class Calculator extends Component {
               paddingTop: "15px",
               paddingBottom: "15px",
               fontSize: "20px",
-              marginRight: "200px",
+              marginRight: "100px",
             }}
           ></input>
         </div>
