@@ -45,23 +45,31 @@ class Calculator extends Component {
   render() {
     return (
       <div
-        style={{ marginLeft: "500px", marginTop: "50px", marginRight: "500px" }}
+        style={{
+          marginLeft: "50px",
+          marginTop: "50px",
+          paddingRight: "100px",
+          paddingLeft: "100px",
+        }}
       >
-        <input
-          onChange={(e) => {
-            this.setState({ inputstring: e.target.value });
-          }}
-          value={this.state.inputstring}
-          type="text"
-          class="form-control"
-          aria-label="Large"
-          aria-describedby="inputGroup-sizing-sm"
-          style={{
-            paddingTop: "15px",
-            paddingBottom: "15px",
-            fontSize: "20px",
-          }}
-        ></input>
+        <div style={{ marginRight: "750px" }}>
+          <input
+            onChange={(e) => {
+              this.setState({ inputstring: e.target.value });
+            }}
+            value={this.state.inputstring}
+            type="text"
+            class="form-control"
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+            style={{
+              paddingTop: "15px",
+              paddingBottom: "15px",
+              fontSize: "20px",
+              marginRight: "200px",
+            }}
+          ></input>
+        </div>
         <div>
           <button
             type="button"
@@ -214,22 +222,23 @@ class Calculator extends Component {
           >
             /
           </button>
-
-          <button
-            type="button"
-            class="btn btn-success"
-            style={{
-              marginTop: "10px",
-              marginBottom: "5px",
-              paddingLeft: "120px",
-              paddingRight: "120px",
-              paddingTop: "20px",
-              paddingBottom: "20px",
-            }}
-            onClick={() => this.getAnswer()}
-          >
-            =
-          </button>
+          <div>
+            <button
+              type="button"
+              class="btn btn-success"
+              style={{
+                marginTop: "10px",
+                marginBottom: "5px",
+                paddingLeft: "120px",
+                paddingRight: "120px",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+              }}
+              onClick={() => this.getAnswer()}
+            >
+              =
+            </button>
+          </div>
         </div>
       </div>
     );
