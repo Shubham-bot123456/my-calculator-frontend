@@ -29,8 +29,9 @@ class Calculator extends Component {
   };
   saveButton = () => {
     console.log(this.state.inputstring);
+    var string = this.state.inputstringcolor === "green" ? " = " : " ";
     this.setState({
-      note: this.state.note + "  " + this.state.inputstring,
+      note: this.state.note + string + this.state.inputstring,
     });
   };
 
