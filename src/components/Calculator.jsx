@@ -8,14 +8,15 @@ class Calculator extends Component {
     inputstring: "",
     inputstringcolor: "black",
     mystyle: {
-      margin: "2px",
-      paddingTop: "20px",
-      paddingBottom: "20px",
-      paddingLeft: "10.5%",
-      paddingRight: "10.5%",
-      fontFamily: "Arial",
-      fontSize: "18px",
+      // margin: "2px",
+      // paddingTop: "20px",
+      // paddingBottom: "20px",
+      // paddingLeft: "10.5%",
+      // paddingRight: "10.5%",
+      // fontFamily: "Arial",
+      // fontSize: "18px",
     },
+    note: "",
   };
   setButtonvalue1 = () => {
     this.setState({ inputstring: this.state.inputstring + 1 });
@@ -25,6 +26,12 @@ class Calculator extends Component {
   };
   setButtonvalue3 = () => {
     this.setState({ inputstring: this.state.inputstring + 3 });
+  };
+  saveButton = () => {
+    console.log(this.state.inputstring);
+    this.setState({
+      note: this.state.note + "  " + this.state.inputstring,
+    });
   };
 
   setButtonvalue = (button) => {
@@ -60,216 +67,270 @@ class Calculator extends Component {
     return (
       <div
         style={{
-          marginLeft: "25%",
-          marginRight: "25%",
-          marginTop: "50px",
-          paddingRight: "100px",
-          paddingLeft: "100px",
+          display: "grid",
+          gridTemplateColumns: "500px 500px",
+          gridColumnGap: "50px",
+          marginLeft: "100px",
         }}
       >
-        <div>
-          <input
-            onChange={(e) => {
-              this.setState({
-                inputstring: e.target.value,
-                inputstringcolor: "black",
-              });
-            }}
-            value={this.state.inputstring}
-            type="text"
-            class="form-control"
-            aria-label="Large"
-            aria-describedby="inputGroup-sizing-sm"
+        <div
+          style={{
+            order: "2",
+          }}
+        >
+          <div class="form-group">
+            <label for="exampleFormControlTextarea3">Note Area</label>
+            <textarea
+              value={this.state.note}
+              onChange={(e) => {
+                this.setState({ note: e.target.value });
+              }}
+              class="form-control"
+              id="exampleFormControlTextarea3"
+              rows="7"
+            ></textarea>
+          </div>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            gridRowGap: "10px",
+          }}
+        >
+          <div
             style={{
-              paddingTop: "15px",
-              paddingBottom: "15px",
-              fontSize: "20px",
-              color: this.state.inputstringcolor,
-              marginRight: "100px",
-              fontStyle: "Bold",
+              display: "grid",
+              gridTemplateColumns: "480px",
+              gridTemplateRows: "60px",
+              gridColumnGap: "5px",
             }}
-          ></input>
-        </div>
-        <div>
-          <button
-            type="button"
-            class="btn btn-danger btn-lg btn-block"
+          >
+            <input
+              onChange={(e) => {
+                this.setState({
+                  inputstring: e.target.value,
+                  inputstringcolor: "black",
+                });
+              }}
+              value={this.state.inputstring}
+              type="text"
+              class="form-control"
+              aria-label="Large"
+              aria-describedby="inputGroup-sizing-sm"
+              style={{
+                paddingTop: "15px",
+                paddingBottom: "15px",
+                fontSize: "20px",
+                color: this.state.inputstringcolor,
+                marginRight: "100px",
+                fontStyle: "Bold",
+              }}
+            ></input>
+          </div>
+          <div
             style={{
-              marginTop: "10px",
-              marginBottom: "5px",
-              paddingLeft: "19%",
-              paddingRight: "19%",
-              paddingTop: "20px",
-              paddingBottom: "20px",
+              display: "grid",
+              gridTemplateColumns: "162px 162px 162px",
+              gridTemplateRows: "70px",
+              gridColumnGap: "5px",
             }}
-            onClick={() => this.setButtonvalue("")}
           >
-            Clear
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger btn-lg btn-block"
+            <button
+              type="button"
+              class="btn btn-danger btn-lg btn-block"
+              onClick={() => this.setButtonvalue("")}
+            >
+              Clear
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-lg btn-block"
+              onClick={this.saveButton}
+            >
+              Note
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-lg btn-block"
+              onClick={this.backSpace}
+            >
+              BackSpace
+            </button>
+          </div>
+          <div
             style={{
-              marginTop: "10px",
-              marginBottom: "5px",
-              paddingLeft: "13%",
-              paddingRight: "13%",
-              paddingTop: "20px",
-              paddingBottom: "20px",
-              marginLeft: "5px",
+              display: "grid",
+              gridTemplateColumns: "120px 120px  120px 120px",
+              gridTemplateRows: "60px",
+              gridColumnGap: "5px",
             }}
-            onClick={this.backSpace}
           >
-            BackSpace
-          </button>
-        </div>
-        <div>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(1)}
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(1)}
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(2)}
+            >
+              2
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(3)}
+            >
+              3
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue("+")}
+            >
+              +
+            </button>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "120px 120px  120px 120px",
+              gridTemplateRows: "60px",
+              gridColumnGap: "5px",
+            }}
           >
-            1
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(2)}
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(4)}
+            >
+              4
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(5)}
+            >
+              5
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(6)}
+            >
+              6
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue("-")}
+            >
+              -
+            </button>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "120px 120px  120px 120px",
+              gridTemplateRows: "60px",
+              gridColumnGap: "5px",
+            }}
           >
-            2
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(3)}
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(7)}
+            >
+              7
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(8)}
+            >
+              8
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(9)}
+            >
+              9
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue("*")}
+            >
+              x
+            </button>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "120px 120px  120px 120px",
+              gridTemplateRows: "60px",
+              gridColumnGap: "5px",
+            }}
           >
-            3
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue("+")}
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(0)}
+            >
+              0
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue("(")}
+            >
+              (
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue(")")}
+            >
+              )
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style={this.state.mystyle}
+              onClick={() => this.setButtonvalue("/")}
+            >
+              /
+            </button>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "495px",
+              gridTemplateRows: "70px",
+            }}
           >
-            +
-          </button>
-        </div>
-        <div>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(4)}
-          >
-            4
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(5)}
-          >
-            5
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(6)}
-          >
-            6
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue("-")}
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(7)}
-          >
-            7
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(8)}
-          >
-            8
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(9)}
-          >
-            9
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue("*")}
-          >
-            x
-          </button>
-        </div>
-        <div>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(0)}
-          >
-            0
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue("(")}
-          >
-            (
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue(")")}
-          >
-            )
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style={this.state.mystyle}
-            onClick={() => this.setButtonvalue("/")}
-          >
-            /
-          </button>
-          <div>
             <button
               type="button"
               class="btn btn-success"
-              style={{
-                marginTop: "10px",
-                marginBottom: "5px",
-                paddingLeft: "46%",
-                paddingRight: "46%",
-                paddingTop: "20px",
-                paddingBottom: "20px",
-              }}
               onClick={() => this.getAnswer()}
             >
               =
