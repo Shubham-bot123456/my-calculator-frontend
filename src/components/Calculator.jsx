@@ -47,6 +47,15 @@ class Calculator extends Component {
         this.setState({ inputstring: "error", inputstringcolor: "red" });
       });
   };
+
+  backSpace = () => {
+    this.setState({
+      inputstring: this.state.inputstring
+        .toString()
+        .substring(0, this.state.inputstring.toString().length - 1),
+      inputstringcolor: "black",
+    });
+  };
   render() {
     return (
       <div
@@ -88,14 +97,30 @@ class Calculator extends Component {
             style={{
               marginTop: "10px",
               marginBottom: "5px",
-              paddingLeft: "45%",
-              paddingRight: "45%",
+              paddingLeft: "19%",
+              paddingRight: "19%",
               paddingTop: "20px",
               paddingBottom: "20px",
             }}
             onClick={() => this.setButtonvalue("")}
           >
             Clear
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-lg btn-block"
+            style={{
+              marginTop: "10px",
+              marginBottom: "5px",
+              paddingLeft: "13%",
+              paddingRight: "13%",
+              paddingTop: "20px",
+              paddingBottom: "20px",
+              marginLeft: "5px",
+            }}
+            onClick={this.backSpace}
+          >
+            BackSpace
           </button>
         </div>
         <div>
