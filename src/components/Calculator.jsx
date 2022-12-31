@@ -7,16 +7,9 @@ class Calculator extends Component {
   state = {
     inputstring: "",
     inputstringcolor: "black",
-    mystyle: {
-      // margin: "2px",
-      // paddingTop: "20px",
-      // paddingBottom: "20px",
-      // paddingLeft: "10.5%",
-      // paddingRight: "10.5%",
-      // fontFamily: "Arial",
-      // fontSize: "18px",
-    },
+    mystyle: {},
     note: "",
+    history: "",
   };
   setButtonvalue1 = () => {
     this.setState({ inputstring: this.state.inputstring + 1 });
@@ -44,11 +37,14 @@ class Calculator extends Component {
       });
   };
   getAnswer = () => {
+    var history = this.state.inputstring;
     CalculatorService.getAnswer(this.state.inputstring)
       .then((result) => {
+        history = this.state.history + history + "=" + result.data + "\n";
         this.setState({
           inputstring: result.data,
           inputstringcolor: result.data === "syntax error" ? "red" : "green",
+          history: history,
         });
       })
       .catch((err) => {
@@ -77,6 +73,7 @@ class Calculator extends Component {
         <div
           style={{
             order: "2",
+            display: "grid",
           }}
         >
           <div class="form-group">
@@ -91,17 +88,27 @@ class Calculator extends Component {
               rows="7"
             ></textarea>
           </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea3">History</label>
+            <textarea
+              value={this.state.history}
+              class="form-control"
+              id="exampleFormControlTextarea3"
+              rows="7"
+            ></textarea>
+          </div>
         </div>
         <div
           style={{
             display: "grid",
             gridRowGap: "10px",
+            marginTop: "20px",
           }}
         >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "480px",
+              gridTemplateColumns: "490px",
               gridTemplateRows: "60px",
               gridColumnGap: "5px",
             }}

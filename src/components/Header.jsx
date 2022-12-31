@@ -15,7 +15,13 @@ class Header extends Component {
     if (this.state.counter % 2 === 0) {
       this.setState({
         aboutMe: (
-          <div class="card">
+          <div
+            class="card"
+            style={{
+              marginLeft: "100px",
+              marginRight: "100px",
+            }}
+          >
             <div class="card-header">About Me</div>
             <div class="card-body">
               <h5 class="card-title">This is project made by me!</h5>
@@ -36,9 +42,22 @@ class Header extends Component {
   };
   render() {
     return (
-      <div className="container">
-        <nav class="navbar navbar-expand-lg navbar-active bg-light">
-          <h1 class="navbar-brand">Calculator - Shubham Jadhav</h1>
+      <div>
+        <nav
+          class="navbar navbar-expand-lg navbar-active "
+          style={{
+            backgroundColor: "#edabe8",
+          }}
+        >
+          <h1
+            style={{
+              marginLeft: "50px",
+              color: "white",
+            }}
+            class="navbar-brand"
+          >
+            Calculator - Shubham Jadhav
+          </h1>
           <button
             class="navbar-toggler"
             type="button"
@@ -56,7 +75,13 @@ class Header extends Component {
                 <button
                   class="nav-link"
                   onClick={this.tellMe}
-                  style={{ border: "none", backgroundColor: "none" }}
+                  style={{
+                    border: "5px",
+                    backgroundColor: "#edabe8",
+                    borderRadius: "5px",
+                    borderColor: "white",
+                    color: "white",
+                  }}
                 >
                   About<span class="sr-only">(Developer)</span>
                 </button>
@@ -64,7 +89,13 @@ class Header extends Component {
             </ul>
           </div>
         </nav>
-        <div>{this.state.aboutMe}</div>
+        <div
+          style={{
+            marginTop: "10px",
+          }}
+        >
+          {this.state.aboutMe}
+        </div>
       </div>
     );
   }
