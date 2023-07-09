@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CalculatorService from "../service/CalculatorService";
+import "./Calculator.css";
 class Calculator extends Component {
   componentDidMount() {
     this.setState({ inputstring: "" });
@@ -62,47 +63,12 @@ class Calculator extends Component {
   };
   render() {
     return (
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "500px 500px",
-          gridColumnGap: "50px",
-          marginLeft: "100px",
-        }}
-      >
-        <div
-          style={{
-            order: "2",
-            display: "grid",
-          }}
-        >
-          <div class="form-group">
-            <label for="exampleFormControlTextarea3">Note Area</label>
-            <textarea
-              value={this.state.note}
-              onChange={(e) => {
-                this.setState({ note: e.target.value });
-              }}
-              class="form-control"
-              id="exampleFormControlTextarea3"
-              rows="7"
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea3">History</label>
-            <textarea
-              value={this.state.history}
-              class="form-control"
-              id="exampleFormControlTextarea3"
-              rows="7"
-            ></textarea>
-          </div>
-        </div>
+      <div className="mainDiv">
         <div
           style={{
             display: "grid",
             gridRowGap: "10px",
-            marginTop: "20px",
+            marginTop: "70px",
           }}
         >
           <div
@@ -343,6 +309,30 @@ class Calculator extends Component {
             >
               =
             </button>
+          </div>
+        </div>
+
+        <div className="inputBoxes">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea3">Note Area</label>
+            <textarea
+              value={this.state.note}
+              onChange={(e) => {
+                this.setState({ note: e.target.value });
+              }}
+              class="form-control"
+              id="exampleFormControlTextarea3"
+              rows="7"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea3">History</label>
+            <textarea
+              value={this.state.history}
+              class="form-control"
+              id="exampleFormControlTextarea3"
+              rows="7"
+            ></textarea>
           </div>
         </div>
       </div>

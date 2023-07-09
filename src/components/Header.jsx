@@ -53,10 +53,12 @@ class Header extends Component {
             style={{
               marginLeft: "50px",
               color: "white",
+              marginTop: "10px",
+              marginBottom: "10px",
             }}
             class="navbar-brand"
           >
-            Calculator - Shubham Jadhav
+            ExpCal - Shubham Jadhav{" "}
           </h1>
           <button
             class="navbar-toggler"

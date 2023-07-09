@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: "#edabe8";
+}
+.navbar {
+  background-color: "#edabe8";
+  display: flex;
+  justify-content: space-evenly;
+}

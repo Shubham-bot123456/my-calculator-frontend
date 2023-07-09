@@ -1,0 +1,11 @@
+.inputBoxes {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 500px;
+}
+.mainDiv {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
